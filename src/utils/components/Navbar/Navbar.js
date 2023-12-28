@@ -2,9 +2,10 @@
 import React, { useState } from 'react'
 import './Navbar.css'
 import { BiMenuAltRight } from 'react-icons/bi'
+import { RxCross2 } from 'react-icons/rx'
 
 const Navbar = () => {
-    const[mobileMenuOpened,setMobileMenuOpened] = useState(false)
+    const [mobileMenuOpened, setMobileMenuOpened] = useState(false)
     return (
         <div className="n-wrapper">
             {/*------Desktop version-------*/}
@@ -31,20 +32,26 @@ const Navbar = () => {
                 </div>
             </div>
             {/*------Mobile version-------*/}
+
             <div className="nm-container">
                 {/*------logo-----*/}
-    <span>Contentic Media</span>
+                <span>Contentic Media</span>
 
-     {/*-----menu icon------*/}
-                <BiMenuAltRight size={30} onClick={()=>setMobileMenuOpened(true)}/>
-            </div>
-            {/*-----mobile menu-----*/}
-            <div className="nm-menu"style={{transform:mobileMenuOpened && "translateX(0%)"}}>
-                <span>Home</span>
-                <span>Services</span>
-                <span>About</span>
-                <span>Blogs</span>
-                <div className="mbutton">Contact Us</div>
+                {/*-----menu icon------*/}
+                {
+                    !mobileMenuOpened ?
+                        <BiMenuAltRight size={30} onClick={() => setMobileMenuOpened(true)}
+                        /> :
+                        <RxCross2 size={30} onClick={() => setMobileMenuOpened(false)} />}
+            
+                {/*-----mobile menu-----*/}
+                <div className="nm-menu" style={{ transform: mobileMenuOpened && "translateX(0%)" }}>
+                    <span>Home</span>
+                    <span>Services</span>
+                    <span>About</span>
+                    <span>Blogs</span>
+                    <div className="mbutton">Contact Us</div>
+                </div>
             </div>
         </div>
     )
