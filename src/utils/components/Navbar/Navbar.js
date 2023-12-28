@@ -1,10 +1,8 @@
 import React from 'react'
-import './Navbar.css'
-const Navbar = () => {
+
+function Navbar() {
   return (
-    <div>
-      
-    </div>
+    <div>Navbar</div>
   )
 }
 
